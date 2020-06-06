@@ -1,0 +1,60 @@
+# EditorConfig - Cross Editor/IDE Settings (http://editorconfig.org)
+# vim:ft=ini ft=dosini
+# Filename: .editorconfig
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+# Experimental settings
+quote_type = single
+spaces_around_operators = true
+spaces_around_brackets = outside
+
+# HTML-specific settings
+[*.{html,htm,phtml}]
+quote_type = double
+
+# CSS/Styling scripts
+[*.{css,scss,sass,less,stylus}]
+indent_size = 2
+
+# Markdown
+[*.{md,markdown,mdown}]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
+max_line_length = 100
+
+# JavaScript
+[*.js,*.jsx,*.ts]
+quote_type = single
+indent_style = tab
+curly_bracket_next_line = false
+
+# JSON
+[*.json]
+indent_size = 2
+
+# JSON configuration files
+[.bower*,.jscsrc,.jshint*,.babelrc]
+indent_size = 2
+
+# YAML
+[*.yml,*.yaml]
+indent_style = space
+indent_size = 2
+
+# Python
+[*.py]
+quote_type = single
+indent_style = tab
+
+# Templating languages
+[*.jade]
+trim_trailing_whitespace = false
+[*.{ejs,hbs}]
+trim_trailing_whitespace = false
