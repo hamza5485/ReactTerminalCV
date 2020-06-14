@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core';
+import Profile from './components/app/Profile';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const useStyles = makeStyles(theme => ({
+	root: {
+		dispaly: 'flex',
+		flexWrap: 'wrap',
+		'& > *': {
+			margin: theme.spacing(1),
+			padding: theme.spacing(1),
+		},
+	},
+	item: {
+		padding: '.5em',
+		margin: '.5em'
+	}
+}));
+
+const App = () => {
+	const classes = useStyles();
+	return (
+		<div className="App">
+			<Container>
+				<div className={classes.root}>
+					<Paper elevation={3} >
+						<Grid container spacing={0}>
+							<Grid item xs={12} className={classes.item}>
+								<Profile />
+							</Grid>
+						</Grid>
+					</Paper>
+				</div>
+			</Container>
+		</div>
+	);
+};
 
 export default App;
