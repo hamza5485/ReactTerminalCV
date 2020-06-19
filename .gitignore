@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+/src/data/profile.js
+/src/data/experience.js
+
 # production
 /build
 
