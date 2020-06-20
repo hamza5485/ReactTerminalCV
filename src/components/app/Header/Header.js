@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
 		...TEXT
 	},
 	appBar: {
-		backgroundColor: '#0000008a',
+		// backgroundColor: '#0000008a',
+		backgroundColor: '#3b3b3b',
 		border: '1px solid black',
 		borderTopLeftRadius: '1em',
 		borderTopRightRadius: '1em',
