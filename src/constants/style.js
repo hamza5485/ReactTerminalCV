@@ -8,5 +8,5 @@ export const COMMAND = {
 	fontFamily: 'Hack',
 	fontSize: '15px',
 	fontWeight: 'bold',
-	color: '#49B9C7',
+	color: '#49B9C7 !important',
 };
