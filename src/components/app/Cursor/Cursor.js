@@ -1,20 +1,21 @@
 import React, { useEffect, useRef } from 'react';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, InputBase } from '@material-ui/core';
+import { Grid, InputBase, TextField, InputAdornment } from '@material-ui/core';
+import { COMMAND } from '../../../constants/style';
 
 const useStyles = makeStyles((theme) => ({
 	session: {
-		color: 'darkgreen ',
-		// color: '#49B9C7',
-		fontWeight: 'bold'
+		color: 'white',
+		fontWeight: 'bold',
+		backgroundColor: 'dodgerblue',
+		padding: '0 .5em'
 	},
 	input: {
 		position: 'relative',
 		padding: '0.2em',
-		fontWeight: 'bold',
-		color: 'white !important',
 		width: '100%',
-		fontFamily: 'Hack'
+		...COMMAND
 	},
 	caret: {
 		width: '50%'
@@ -41,24 +42,25 @@ const Cursor = props => {
 
 	return (
 		<div>
-			<Grid container alignItems="center" spacing={0}>
-				<Grid item>
-					<span className={classes.session}>{`user@hamzaans.dev:~$`}</span>
-				</Grid>
-				<Grid item xs={8}>
-					<InputBase
-						className={classes.input}
-						disabled={shouldDisable}
-						onKeyDown={handleKeyPress}
-						onChange={handleInput}
-						defaultValue={command}
-						inputProps={{ 'aria-label': 'naked' }}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					{response}
-				</Grid>
-			</Grid>
+			<InputBase
+				className={classes.input}
+				disabled={shouldDisable}
+				onKeyDown={handleKeyPress}
+				onChange={handleInput}
+				defaultValue={command}
+				autoFocus
+				startAdornment={
+					<InputAdornment position="start">
+						<span className={classes.session}>{`user@hamzaanas.dev:~#`}</span>
+					</InputAdornment>
+				}
+				InputProps={{
+					'aria-label': 'naked'
+				}}
+			/>
+			<div>
+				{response}
+			</div>
 		</div>
 	);
 };
