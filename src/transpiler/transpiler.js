@@ -54,10 +54,16 @@ class Transpiler {
 
 	_interpret(command) {
 		const { com, sec, tag } = this._getCommandBreakdown(command);
+		let response = '';
+		let section = SECTIONS[sec];
 		if (com === 'view') {
-			let response = '';
-			if (tag === '-p') response = <pre>{JSON.stringify(SECTIONS[sec], null, 2)}</pre>;
-			else response = JSON.stringify(SECTIONS[sec]);
+			delete section.functions; // deletes main object.
+			if (tag === '-p') response = <pre>{JSON.stringify(section, null, 2)}</pre>;
+			else response = JSON.stringify(section);
+			return this._formResponse(command, response, false);
+		} else if (com === 'explore') {
+			if (tag === '-p') response = <pre>{JSON.stringify(section.functions, null, 2)}</pre>;
+			else response = JSON.stringify(section.functions);
 			return this._formResponse(command, response, false);
 		}
 	}
