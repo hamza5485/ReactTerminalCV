@@ -26,13 +26,26 @@ const Cursor = props => {
 	const classes = useStyles();
 	const [command, setCommand] = React.useState("");
 	const [response, setResponse] = React.useState("");
+	const [upKeyCount, setUpKeyCount] = React.useState(1);
 	const [shouldDisable, setShouldDisable] = React.useState(false);
 
-	const handleKeyPress = e => {
-		if (e.keyCode === 13) {
+	const handleKeyKey = e => {
+		if (e.keyCode === 13) { // enter
 			setShouldDisable(true);
 			let r = props.newCommand(command);
 			setResponse(r);
+		} else if (e.keyCode === 38) { // up key
+			const lastCommand = props.getPrevCommand(upKeyCount);
+			if (lastCommand !== undefined) {
+				console.log(lastCommand);
+				setUpKeyCount(upKeyCount + 1);
+				setCommand(lastCommand)
+			}
+		} else if (e.keyCode === 40 && upKeyCount > 0) { // down key
+			const prevCommand = props.getPrevCommand(upKeyCount - 1);
+			console.log(prevCommand);
+			setUpKeyCount(upKeyCount - 1);
+			setCommand(prevCommand);
 		}
 	};
 
@@ -45,9 +58,9 @@ const Cursor = props => {
 			<InputBase
 				className={classes.input}
 				disabled={shouldDisable}
-				onKeyDown={handleKeyPress}
+				onKeyDown={handleKeyKey}
 				onChange={handleInput}
-				defaultValue={command}
+				value={command}
 				autoFocus
 				startAdornment={
 					<InputAdornment position="start">

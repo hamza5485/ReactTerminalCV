@@ -24,14 +24,30 @@ const Window = props => {
 
 	const handleCommand = com => {
 		let res = transpiler.transpile(com);
-		let command = `${count} ${res.timestamp} ${res.command}`;
+		let command = {
+			count: count,
+			ts: res.timestamp,
+			command: res.command
+		}; //`${count} ${res.timestamp} ${res.command}`;
 		setCommandList([...commandList, command]);
 		setCount(count + 1);
 		return res.response;
 	};
 
+	const getPrevCommand = i => {
+		if (i === 0) {
+			return "";
+		} else if (commandList.length !== 0 && !(i > commandList.length)) {
+			const com = commandList[commandList.length - i];
+			return com.command;
+		}
+	};
+
 	const getCursor = () => {
-		return <Cursor key={cursorList.length + 1} newCommand={handleCommand} />
+		return <Cursor
+			key={cursorList.length + 1}
+			newCommand={handleCommand}
+			getPrevCommand={getPrevCommand} />
 	};
 
 	useEffect(() => {
