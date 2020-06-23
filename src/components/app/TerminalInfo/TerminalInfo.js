@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, ListItem, List, Grid, makeStyles } from '@material-ui/core';
 import { TEXT, COMMAND } from '../../../constants/style';
-import profile from '../../../data/profile';
+import profile from '../../../transpiler/profile/data';
 
 const useStyles = makeStyles((theme) => ({
 	window: {

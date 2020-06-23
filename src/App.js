@@ -1,10 +1,12 @@
 import React from 'react';
 import Terminal from './components/app/Terminal'
+import Transpiler from './transpiler';
 
 const App = () => {
+	const transpiler = new Transpiler();
   return (
     <div className="App" style={{backgroundColor: 'grey'}}>
-      <Terminal />
+      <Terminal transpiler={transpiler}/>
     </div>
   );
 };

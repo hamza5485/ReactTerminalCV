@@ -67,7 +67,7 @@ const Cursor = props => {
 						<span className={classes.session}>{`user@hamzaanas.dev:~#`}</span>
 					</InputAdornment>
 				}
-				InputProps={{
+				inputProps={{
 					'aria-label': 'naked'
 				}}
 			/>

@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { TEXT } from '../../../constants/style'
 import Cursor from '../Cursor/Cursor';
 import TerminalInfo from '../TerminalInfo/TerminalInfo';
-import Transpiler from '../../../transpiler';
 
 const useStyles = makeStyles((theme) => ({
 	window: {
@@ -19,18 +18,15 @@ const Window = props => {
 	const classes = useStyles();
 	const [commandList, setCommandList] = React.useState([]);
 	const [cursorList, setCursorList] = React.useState([]);
-	const [count, setCount] = React.useState(1);
-	const transpiler = new Transpiler();
+	const transpiler = props.transpiler;
 
 	const handleCommand = com => {
 		let res = transpiler.transpile(com);
 		let command = {
-			count: count,
 			ts: res.timestamp,
 			command: res.command
-		}; //`${count} ${res.timestamp} ${res.command}`;
+		};
 		setCommandList([...commandList, command]);
-		setCount(count + 1);
 		return res.response;
 	};
 

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-const Terminal = () => {
+const Terminal = props => {
 	const classes = useStyles();
 	const [toggleMaximize, setToggleMaximize] = React.useState(true);
 	const [toggleMinimize, setToggleMinimize] = React.useState(false);
@@ -31,7 +31,7 @@ const Terminal = () => {
 			<CssBaseline />
 			<Container maxWidth={toggleMaximize ? "lg" : "sm"} className={classes.container}>
 				<Header callback={handleCallback} />
-				{!toggleMinimize && <Window isMax={toggleMaximize} />}
+				{!toggleMinimize && <Window isMax={toggleMaximize} transpiler={props.transpiler}/>}
 			</Container>
 		</React.Fragment>
 	);
