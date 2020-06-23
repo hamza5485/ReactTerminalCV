@@ -1,27 +1,22 @@
-import experience from "../data/experience";
-import profile from "../data/profile";
-
-export const COMMANDS = [
-	"view",
-	"explore",
-	"help",
-	"clear",
-	"history"
-];
-
-export const SECTIONS = {
-	experience: experience,
-	profile: profile
+export const COMMANDS = {
+	single: [
+		"help",
+		"clear",
+		"history",
+		"sections"
+	],
+	mult: [
+		"view",
+		"explore"
+	]
 };
 
-export const TAGS = [
-	"-v",
-	"-p",
+export const SECTIONS = [
+	"experience",
+	"profile"
 ];
 
-export const RESPONSES = {
-
-};
+export const HELP = "helping you like :3";
 
 export const ERRORS = {
 	commandNotFound: {
@@ -43,6 +38,10 @@ export const ERRORS = {
 	tooManyArgs: {
 		error: true,
 		errMsg: `too many arguments, please use 'help' for more information`
+	},
+	functionDoesntExist: {
+		error: true,
+		errMsg: `function not found, please use 'help' for more information`
 	},
 	noError: {
 		error: false,

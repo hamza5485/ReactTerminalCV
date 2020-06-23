@@ -1,11 +1,17 @@
 import React from 'react';
-import { COMMANDS, TAGS, RESPONSES, SECTIONS, ERRORS } from './dictionary';
+import { COMMANDS, SECTIONS, ERRORS, HELP } from './dictionary';
+import ProfileController from './profile/controller';
 
 class Transpiler {
 
+	_history = [];
+
+	constructor() {
+		this._profileController = new ProfileController();
+	}
+
 	transpile(command) {
-		let commandArray = this._commandToCommandArr(command);
-		let isValid = this._isValidCommand(commandArray);
+		let isValid = this._isValidCommand(command);
 		if (!isValid.error) {
 			return this._interpret(command);
 		} else {
@@ -13,59 +19,73 @@ class Transpiler {
 		}
 	}
 
-	_commandToCommandArr(command) {
-		let arr = command.split(" ");
-		if (arr.includes("")) arr.splice(arr.indexOf(""), 1);
-		return arr;
+	_getSectionFunctions(section) {
+		if (section === 'profile') return this._profileController.explore();
 	}
 
-	_isValidCommand(arr) {
-		if (!COMMANDS.includes(arr[0])) return ERRORS.commandNotFound;
-		else if (arr.length < 2) return ERRORS.incomplete;
-		else if (!SECTIONS.hasOwnProperty(arr[1])) return ERRORS.sectionNotFound;
-		else if (arr.length === 3 && !TAGS.includes(arr[2])) return ERRORS.tagNotFound;
-		else if (arr.length > 3) return ERRORS.tooManyArgs;
-		else return ERRORS.noError;
-	}
-
-	_getCommandBreakdown(command) {
-		let commandArray = this._commandToCommandArr(command)
-		switch (commandArray.length) {
-			case 2:
-				return {
-					com: commandArray[0],
-					sec: commandArray[1],
-					tag: null
-				};
-			case 3:
-				return {
-					com: commandArray[0],
-					sec: commandArray[1],
-					tag: commandArray[2]
-				};
-			default:
-				return {
-					com: null,
-					sec: null,
-					tag: null
-				};
+	_isValidCommand(command) {
+		const comArr = command.split(" ");
+		if (comArr.length === 0) {
+			return ERRORS.commandNotFound; // change to empty command
+		} else if (comArr.length > 2) {
+			return ERRORS.tooManyArgs;
+		} else if (comArr.length === 2) {
+			if (!COMMANDS.mult.includes(comArr[0])) {
+				return ERRORS.commandNotFound;
+			} else if (!SECTIONS.includes(comArr[1])) {
+				return ERRORS.sectionNotFound;
+			}
+		} else if (comArr.length === 1 && !command.includes(".")) {
+			if (COMMANDS.mult.includes(comArr[0])) {
+				return ERRORS.sectionNotFound;
+			} else if (!COMMANDS.single.includes(comArr[0])) {
+				return ERRORS.commandNotFound;
+			}
+		} else if (comArr.length === 1 && command.includes(".")) {
+			const section = command.split(".");
+			if (section.length !== 2) {
+				return ERRORS.commandNotFound;
+			} else if (!SECTIONS.includes(section[0])) {
+				return ERRORS.sectionNotFound;
+			} else {
+				const funct = this._getSectionFunctions(section[0]);
+				if (!funct.hasOwnProperty(section[1])) {
+					return ERRORS.functionDoesntExist;
+				}
+			}
 		}
+		return ERRORS.noError;
 	}
 
 	_interpret(command) {
-		const { com, sec, tag } = this._getCommandBreakdown(command);
 		let response = '';
-		let section = SECTIONS[sec];
-		if (com === 'view') {
-			delete section.functions; // deletes main object.
-			if (tag === '-p') response = <pre>{JSON.stringify(section, null, 2)}</pre>;
-			else response = JSON.stringify(section);
-			return this._formResponse(command, response, false);
-		} else if (com === 'explore') {
-			if (tag === '-p') response = <pre>{JSON.stringify(section.functions, null, 2)}</pre>;
-			else response = JSON.stringify(section.functions);
-			return this._formResponse(command, response, false);
+		if (command.includes(".")) {
+			const arr = command.split(".");
+			let sec = arr[0];
+			let func = arr[1];
+			this._mapToController(sec).getFunctions(func);
+		} else {
+			let output = '';
+			const arr = command.split(" ");
+			if (arr.length === 2) {
+				let com = arr[0];
+				let sec = arr[1];
+				if (com === 'view') {
+					output = this._mapToController(sec).view();
+				} else if (com === 'explore') {
+					output = this._mapToController(sec).explore();
+				}
+				response = <pre>{JSON.stringify(output, null, 2)}</pre>
+			} else if (arr.length === 1) {
+				if (command === 'help') return this._formResponse(command, HELP, false);
+				if (command === 'history') response = <pre>{this._history.join("\n")}</pre>;
+			}
 		}
+		return this._formResponse(command, response, false);
+	}
+
+	_mapToController(section) {
+		if (section === 'profile') return this._profileController;
 	}
 
 	_getTimestamp() {
@@ -85,9 +105,9 @@ class Transpiler {
 			error: resp.err,
 			timestamp: resp.ts,
 		}
+		this._history.push(`${this._history.length + 1} ${response.timestamp} ${response.command}`);
 		return response;
 	}
-
 }
 
 export default Transpiler;
