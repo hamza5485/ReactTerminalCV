@@ -39,8 +39,8 @@ const useStyles = makeStyles((theme) => ({
 	imgMin: {
 		border: `2px solid ${COMMAND.color}`,
 		padding: theme.spacing(1),
-		width: '150px',
-		height: '150px'
+		width: '120px',
+		height: '120px'
 	}
 }));
 
