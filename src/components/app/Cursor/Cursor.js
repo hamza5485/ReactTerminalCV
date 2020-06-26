@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
-import clsx from 'clsx';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, InputBase, TextField, InputAdornment } from '@material-ui/core';
+import {  InputBase, InputAdornment } from '@material-ui/core';
 import { COMMAND } from '../../../constants/style';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 
 const useStyles = makeStyles((theme) => ({
 	session: {
@@ -19,6 +21,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 	caret: {
 		width: '50%'
+	},
+	pretty: {
+		padding: '0 !important',
+		backgroundColor: '#2a2a2a !important',
+		overflowX: 'hidden !important',
+		fontFamily: 'Hack !important',
+		whiteSpace: 'pre-wrap !important'
 	}
 }));
 
@@ -53,6 +62,14 @@ const Cursor = props => {
 		setCommand(e.target.value);
 	};
 
+	const prettyResponse = () => {
+		return (
+			<SyntaxHighlighter style={agate} className={classes.pretty}>
+				{response}
+			</SyntaxHighlighter>
+		);
+	};
+
 	return (
 		<div>
 			<InputBase
@@ -72,7 +89,7 @@ const Cursor = props => {
 				}}
 			/>
 			<div>
-				{response}
+				{response && prettyResponse()}
 			</div>
 		</div>
 	);
