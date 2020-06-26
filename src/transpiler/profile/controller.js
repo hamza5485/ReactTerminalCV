@@ -12,16 +12,36 @@ class ProfileController {
 
 	explore() {
 		return {
-			sendEmail: typeof this._sendEmail,
-			makeCall: typeof this._makeCall,
-			viewLinkedIn: typeof this._viewLinkedIn,
-			viewGithub: typeof this._viewGithub,
-			viewTwitter: typeof this._viewTwitter,
+			sendEmail: {
+				type: typeof this._sendEmail,
+				description: 'Open default email client with me as recipient',
+				usage: 'profile.sendEmail'
+			},
+			makeCall: {
+				type: typeof this._makeCall,
+				description: 'Attempt to make a call to me',
+				usage: 'profile.makeCall'
+			},
+			viewLinkedIn: {
+				type: typeof this._viewLinkedIn,
+				description: 'View my LinkedIn profile',
+				usage: 'profile.viewLinkedIn'
+			},
+			viewGithub: {
+				type: typeof this._viewGithub,
+				description: 'View my Github profile',
+				usage: 'profile.viewGithub'
+			},
+			viewTwitter: {
+				type: typeof this._viewTwitter,
+				description: 'View my Twitter profile',
+				usage: 'profile.viewTwitter'
+			},
 		}
 	}
 
 	getFunctions(func) {
-		switch(func) {
+		switch (func) {
 			case "sendEmail":
 				return this._sendEmail();
 			case "makeCall":
