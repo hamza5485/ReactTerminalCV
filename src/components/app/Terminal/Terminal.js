@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Header from '../Header';
 import Window from '../Window';
@@ -9,9 +8,6 @@ import Window from '../Window';
 const useStyles = makeStyles((theme) => ({
 	container: {
 		height: '100vh',
-		// borderLeft: '1px solid #dadada',
-		// borderRight: '1px solid #dadada',
-		// borderBottom: '1px solid #dadada',
 		padding: theme.spacing(1)
 	}
 }));
