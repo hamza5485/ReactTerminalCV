@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/CloseRounded';
 import MinimizeIcon from '@material-ui/icons/RemoveRounded';
@@ -20,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
 		...TEXT
 	},
 	appBar: {
-		// backgroundColor: '#0000008a',
 		backgroundColor: '#3b3b3b',
-		border: '1px solid black',
+		borderTop: '1px solid black',
+		borderLeft: '1px solid black',
+		borderRight: '1px solid black',
 		borderTopLeftRadius: '1em',
 		borderTopRightRadius: '1em',
 	},
