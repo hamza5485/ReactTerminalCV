@@ -57,7 +57,8 @@ const Window = props => {
 	}, [commandList]);
 
 	return (
-		<div className={classes.window}>
+		<div className={classes.window} style={
+			props.shouldMinimize ? { visibility: 'hidden'} : {visibility: 'visible'}}>
 			<TerminalInfo isMax={props.isMax} />
 			{cursorList.length > 0 && cursorList.map(elem => elem)}
 		</div>
