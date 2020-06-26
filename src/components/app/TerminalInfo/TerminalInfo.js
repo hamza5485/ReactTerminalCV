@@ -57,7 +57,20 @@ const TerminalInfo = props => {
 				<Grid item xs={12} sm={8} md={9}>
 					<Typography className={classes.cmd}>hamzaanas.dev</Typography>
 					<Typography className={classes.text}>{"----------------"}</Typography>
-					<Grid container>
+					<Typography className={classes.text}>
+						Use `ls` command to view available sections. Use the `view [section]` command to
+						get all information available in a section. Use `explore [section]` command
+						to get a list of available functions that can be used.
+						All responses are JSON objects. Use `help` command for more information.
+					</Typography>
+					<Typography>
+						Examples:
+					</Typography>
+					<List>
+						<ListItem className={classes.text}>1. view [section]</ListItem>
+						<ListItem className={classes.text}>2. explore [section</ListItem>
+					</List>
+					{/* <Grid container>
 						<Grid item>
 							<Typography className={classes.cmd}>{`name`}</Typography>
 						</Grid>
@@ -72,24 +85,18 @@ const TerminalInfo = props => {
 						<Grid item>
 							<Typography className={classes.text}>{`: ${profile.title}`}</Typography>
 						</Grid>
-					</Grid>
-					<Typography className={classes.text}>{"----------------"}</Typography>
-					<Typography className={classes.text}>
-						Welcome to my personal website.
-					</Typography>
-					<Typography className={classes.text}>There are four main sections:</Typography>
+					</Grid> */}
+					{/* <Typography className={classes.text}>{"----------------"}</Typography> */}
+					{/* <Typography className={classes.text}>
+
+					</Typography> */}
+					{/* <Typography className={classes.text}>There are four main sections:</Typography>
 					<List>
 						<ListItem className={classes.text}>1. profile</ListItem>
 						<ListItem className={classes.text}>2. experience</ListItem>
 						<ListItem className={classes.text}>3. skills</ListItem>
 						<ListItem className={classes.text}>4. education</ListItem>
-					</List>
-					<Typography className={classes.text}>
-						There are two primary commands, `view` and `explore`.
-						Use the command `view` to see the information in each section or `explore` to
-						see what more can be done. Use `help` to more information.
-						Example commands: explore skill; view profile;
-					</Typography>
+					</List> */}
 				</Grid>
 			</Grid>
 		</div>
