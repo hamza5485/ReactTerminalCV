@@ -26,7 +26,10 @@ const Window = props => {
 			ts: res.timestamp,
 			command: res.command
 		};
-		setCommandList([...commandList, command]);
+		if (res.command === 'clear')
+			setCommandList([]);
+		else
+			setCommandList([...commandList, command]);
 		return res.response;
 	};
 
@@ -47,7 +50,10 @@ const Window = props => {
 	};
 
 	useEffect(() => {
-		setCursorList([...cursorList, getCursor()]);
+		if (commandList.length === 0)
+			setCursorList([getCursor()])
+		else
+			setCursorList([...cursorList, getCursor()]);
 	}, [commandList]);
 
 	return (
