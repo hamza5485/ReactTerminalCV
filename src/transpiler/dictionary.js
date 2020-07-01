@@ -18,7 +18,7 @@ export const SECTIONS = [
 	"skills"
 ];
 
-export const HELP = "There are four available sections: profile, experience, education, and skills. These can be viewed using the 'ls' command. For each section, you can use the 'view' command to get an info dump of all available data in that section for eg 'view profile'. You can also use the 'explore' command to get a list of functions, their descriptions, and how to use them for each section for example: 'explore experience'. You can use the 'history' command to get a list of all commands typed. You can alose use the 'clear' command to remove all information from the terminal. In the case of information dump, all responses are JSON encoded. Also, please excuse the syntax highlighting for this bit, I may or may not fix this in the future ¯\\_(ツ)_/¯";
+export const HELP = "There are four available sections: profile, experience, education, and skills. These can be viewed using the 'ls' command. For each section, you can use the 'view' command to get an info dump of all available data in that section for eg 'view profile'. You can also use the 'explore' command to get a list of functions, their descriptions, and how to use them for each section for example: 'explore experience'. You can use the 'history' command to get a list of all commands typed. You can alose use the 'clear' command to remove all information from the terminal. In the case of information dump, all responses are JSON encoded.";
 
 export const ERRORS = {
 	commandNotFound: {
