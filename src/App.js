@@ -5,7 +5,7 @@ import Transpiler from './transpiler';
 const App = () => {
 	const transpiler = new Transpiler();
   return (
-    <div className="App" style={{backgroundColor: 'gray'}}>
+    <div className="App" style={{backgroundColor: '#1e1e1e'}}>
       <Terminal transpiler={transpiler}/>
     </div>
   );
