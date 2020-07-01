@@ -54,11 +54,12 @@ const Window = props => {
 			setCursorList([getCursor()])
 		else
 			setCursorList([...cursorList, getCursor()]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [commandList]);
 
 	return (
 		<div className={classes.window} style={
-			props.shouldMinimize ? { visibility: 'hidden'} : {visibility: 'visible'}}>
+			props.shouldMinimize ? { visibility: 'hidden' } : { visibility: 'visible' }}>
 			<TerminalInfo isMax={props.isMax} />
 			{cursorList.length > 0 && cursorList.map(elem => elem)}
 		</div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, ListItem, List, Grid, makeStyles } from '@material-ui/core';
 import { TEXT, COMMAND } from '../../../constants/style';
-import profile from '../../../transpiler/profile/data';
 
 const useStyles = makeStyles((theme) => ({
 	window: {
@@ -63,40 +62,13 @@ const TerminalInfo = props => {
 						to get a list of available functions that can be used.
 						All responses are JSON objects. Use `help` command for more information.
 					</Typography>
-					<Typography>
+					<Typography className={classes.text}>
 						Examples:
 					</Typography>
 					<List>
-						<ListItem className={classes.text}>1. view [section]</ListItem>
-						<ListItem className={classes.text}>2. explore [section</ListItem>
+						<ListItem className={classes.cmd}>&gt; view profile</ListItem>
+						<ListItem className={classes.cmd}>&gt; explore profile</ListItem>
 					</List>
-					{/* <Grid container>
-						<Grid item>
-							<Typography className={classes.cmd}>{`name`}</Typography>
-						</Grid>
-						<Grid item>
-							<Typography className={classes.text}>{`: ${profile.name}`}</Typography>
-						</Grid>
-					</Grid>
-					<Grid container>
-						<Grid item>
-							<Typography className={classes.cmd}>{`title`}</Typography>
-						</Grid>
-						<Grid item>
-							<Typography className={classes.text}>{`: ${profile.title}`}</Typography>
-						</Grid>
-					</Grid> */}
-					{/* <Typography className={classes.text}>{"----------------"}</Typography> */}
-					{/* <Typography className={classes.text}>
-
-					</Typography> */}
-					{/* <Typography className={classes.text}>There are four main sections:</Typography>
-					<List>
-						<ListItem className={classes.text}>1. profile</ListItem>
-						<ListItem className={classes.text}>2. experience</ListItem>
-						<ListItem className={classes.text}>3. skills</ListItem>
-						<ListItem className={classes.text}>4. education</ListItem>
-					</List> */}
 				</Grid>
 			</Grid>
 		</div>
