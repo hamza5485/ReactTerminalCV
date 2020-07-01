@@ -1,9 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {  InputBase, InputAdornment } from '@material-ui/core';
+import { InputBase, InputAdornment } from '@material-ui/core';
 import { COMMAND } from '../../../constants/style';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { HELP, ERRORS } from '../../../transpiler/dictionary';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +64,9 @@ const Cursor = props => {
 	};
 
 	const prettyResponse = () => {
-		return (
+		if (response === HELP || Object.values(ERRORS).findIndex(e => e.errMsg === response) !== -1)
+			return response;
+		else return (
 			<SyntaxHighlighter style={agate} className={classes.pretty}>
 				{response}
 			</SyntaxHighlighter>
