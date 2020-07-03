@@ -47,13 +47,11 @@ const Cursor = props => {
 		} else if (e.keyCode === 38) { // up key
 			const lastCommand = props.getPrevCommand(upKeyCount);
 			if (lastCommand !== undefined) {
-				console.log(lastCommand);
 				setUpKeyCount(upKeyCount + 1);
 				setCommand(lastCommand)
 			}
 		} else if (e.keyCode === 40 && upKeyCount > 0) { // down key
 			const prevCommand = props.getPrevCommand(upKeyCount - 1);
-			console.log(prevCommand);
 			setUpKeyCount(upKeyCount - 1);
 			setCommand(prevCommand);
 		}
