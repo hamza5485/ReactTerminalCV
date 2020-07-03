@@ -16,6 +16,7 @@ class Transpiler {
 	}
 
 	transpile(command) {
+		command = command.trimEnd();
 		let isValid = this._isValidCommand(command);
 		if (!isValid.error) {
 			return this._interpret(command);
@@ -33,10 +34,8 @@ class Transpiler {
 
 	_isValidCommand(command) {
 		if (command === '') { return ERRORS.noError } else {
-			const comArr = command.split(" ");
-			if (comArr.length === 0) {
-				return ERRORS.commandNotFound;
-			} else if (comArr.length > 2) {
+			const comArr = command.trimEnd().split(" ");
+			if (comArr.length > 2 ) {
 				return ERRORS.tooManyArgs;
 			} else if (comArr.length === 2) {
 				if (!COMMANDS.mult.includes(comArr[0])) {
@@ -127,8 +126,6 @@ class Transpiler {
 		}
 		if (com !== 'clear' && com !== '')
 			this._history.push(`${this._history.length + 1} ${response.timestamp} ${response.command}`);
-		if (com === 'history')
-			response.response += `${"\n"}${this._history.length} ${response.timestamp} ${response.command}`;
 		return response;
 	}
 }
