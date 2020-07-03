@@ -26,9 +26,12 @@ const Window = props => {
 			ts: res.timestamp,
 			command: res.command
 		};
-		if (res.command === 'clear')
+		if (res.command === 'clear' && commandList.length !== 0)
 			setCommandList([]);
-		else
+		else if (res.command === 'clear' && commandList.length === 0) {
+			setCommandList([]);
+			setCursorList(getCursor());
+		} else
 			setCommandList([...commandList, command]);
 		return res.response;
 	};
@@ -51,7 +54,7 @@ const Window = props => {
 
 	useEffect(() => {
 		if (commandList.length === 0)
-			setCursorList([getCursor()])
+			setCursorList([getCursor()]);
 		else
 			setCursorList([...cursorList, getCursor()]);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
