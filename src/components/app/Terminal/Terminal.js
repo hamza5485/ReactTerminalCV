@@ -36,7 +36,7 @@ const Terminal = props => {
 						<Window isMax={toggleMaximize} shouldMinimize={toggleMinimize}
 							transpiler={props.transpiler} />
 					</div> :
-					<Typography variant="h1" style={{ textAlign: 'center' }}>¯\_(ツ)_/¯</Typography>}
+					<Typography variant="h1" style={{ textAlign: 'center', color: '#49B9C7' }}>¯\_(ツ)_/¯</Typography>}
 			</Container>
 		</React.Fragment>
 	);

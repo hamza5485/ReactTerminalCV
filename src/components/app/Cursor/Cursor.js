@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	pretty: {
 		padding: '0 !important',
-		backgroundColor: '#2a2a2a !important',
+		backgroundColor: '#0a0a0a !important',
 		overflowX: 'hidden !important',
 		fontFamily: 'Hack !important',
 		whiteSpace: 'pre-wrap !important'
