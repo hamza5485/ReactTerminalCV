@@ -54,7 +54,7 @@ const TerminalInfo = props => {
 						className={props.isMax ? classes.img : classes.imgMin} />
 				</Grid>
 				<Grid item xs={12} sm={8} md={9}>
-					<Typography className={classes.cmd}>hamzaanas.dev</Typography>
+					<Typography className={classes.cmd}>hamzaanas.codes</Typography>
 					<Typography className={classes.text}>{"----------------"}</Typography>
 					<Typography className={classes.text}>
 						Use `ls` command to view available sections. Use the `view [section]` command to

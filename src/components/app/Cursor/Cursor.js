@@ -82,7 +82,7 @@ const Cursor = props => {
 				autoFocus
 				startAdornment={
 					<InputAdornment position="start">
-						<span className={classes.session}>{`user@hamzaanas.dev:~#`}</span>
+						<span className={classes.session}>{`user@hamzaanas.codes:~#`}</span>
 					</InputAdornment>
 				}
 				inputProps={{

@@ -81,7 +81,7 @@ const Header = props => {
 			<AppBar position="static" className={classes.appBar}>
 				<Toolbar className={classes.toolbar}>
 					<Typography variant="h6" className={classes.title}>
-						{getClientOS() + "@hamzaanas.dev"}
+						{getClientOS() + "@hamzaanas.codes"}
 					</Typography>
 					<IconButton size="small" className={classes.btnMinimize} onClick={() => handleBtnClick("toggleMin")}>
 						<MinimizeIcon className={classes.icon} />
