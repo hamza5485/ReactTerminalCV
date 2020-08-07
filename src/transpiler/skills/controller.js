@@ -26,6 +26,11 @@ class SkillController {
 				type: typeof this._mobile,
 				description: "Get skills and technologies related to mobile development",
 				usage: "skills.mobile"
+			},
+			code: {
+				type: typeof this._code,
+				description: "List programming languages",
+				usage: "skills.code"
 			}
 		}
 	}
@@ -38,6 +43,8 @@ class SkillController {
 				return this._web();
 			case "mobile":
 				return this._mobile();
+			case "code":
+				return this._code();
 			default:
 				return null;
 		}
@@ -45,29 +52,40 @@ class SkillController {
 
 	_cloud() {
 		return {
-			type: this._data.skill[0],
+			name: this._data.skill[0],
 			technologies: this._data.technologies.AWS
 		}
 	}
 
 	_web() {
 		return {
-			type: this._data.skill[2],
+			name: this._data.skill[1],
 			technologies: {
 				JavaScript: this._data.technologies.JavaScript,
 				Python: this._data.technologies.Python,
 				"C#": this._data.technologies["C#"],
 				PHP: this._data.technologies.PHP,
-				Design: this._data.technologies.Design
+				Design: this._data.technologies.Design,
+				Database: this._data.technologies.Database
 			}
 		}
 	}
 
 	_mobile() {
 		return {
-			type: this._data.skill[1],
+			name: this._data.skill[2],
 			technologies: {
-				Java: this._data.technologies.Java
+				Java: this._data.technologies.Java,
+				Database: this._data.technologies.Database
+			}
+		}
+	}
+
+	_code() {
+		return {
+			name: this._data.skill[4],
+			technologies: {
+				Java: this._data.technologies.Languages
 			}
 		}
 	}

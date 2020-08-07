@@ -12,14 +12,24 @@ class EducationController {
 
 	explore() {
 		return {
+			viewBsc: {
+				type: typeof this._viewBsc,
+				description: 'See details of Bachelors degree',
+				usage: 'education.viewBsc'
+			},
+			viewMsc: {
+				type: typeof this._viewMsc,
+				description: 'See details of Masters degree',
+				usage: 'education.viewMsc'
+			},
 			viewSchools: {
 				type: typeof this._viewSchools,
-				description: 'Open websites of all schools attended',
+				description: 'List of universities attended',
 				usage: 'education.viewSchools'
 			},
 			viewCourses: {
 				type: typeof this._viewCourses,
-				description: 'Open description page of all degrees studied',
+				description: 'List all courses & specializations studied at university',
 				usage: 'education.viewCourses'
 			},
 			viewCerts: {
@@ -32,6 +42,10 @@ class EducationController {
 
 	getFunctions(func) {
 		switch (func) {
+			case "viewBsc":
+				return this._viewBsc();
+				case "viewMsc":
+					return this._viewMsc();
 			case "viewSchools":
 				return this._viewSchools();
 			case "viewCourses":
@@ -43,28 +57,57 @@ class EducationController {
 		}
 	}
 
-	_viewSchools() {
+	_viewBsc() {
+		let bsc = [];
 		for (let school of this._data.schooling) {
-			if (school.hasOwnProperty('url')) {
-				window.open(school.url);
+			if (school.type === 'Bachelors') {
+				bsc.push(school);
 			}
 		}
+		return bsc;
+	}
+
+	_viewMsc() {
+		let msc = [];
+		for (let school of this._data.schooling) {
+			if (school.type === 'Masters') {
+				msc.push(school);
+			}
+		}
+		return msc;
+	}
+
+	_viewSchools() {
+		let schools = [];
+		for (let school of this._data.schooling) {
+			let s = {
+				name: school.name,
+				type: school.type,
+				location: school.location,
+				url: school.url
+			};
+			schools.push(s);
+		}
+		return schools;
 	}
 
 	_viewCourses() {
+		let courses = [];
 		for (let school of this._data.schooling) {
-			if (school.hasOwnProperty('courseUrl')) {
-				window.open(`${school.courseUrl}`);
-			}
+			let c = {
+				degree: school.course,
+				specialization: school.specialization,
+				type: school.type,
+				uni: school.name,
+				courseUrl: school.courseUrl
+			};
+			courses.push(c);
 		}
+		return courses;
 	}
 
 	_viewCerts() {
-		for (let cert of this._data.certs) {
-			if (cert.hasOwnProperty('url')) {
-				window.open(cert.url);
-			}
-		}
+		return this._data.certs;
 	}
 }
 

@@ -1,10 +1,14 @@
+import skillData from '../skills/data';
+
 const experience = [
 	{
 		title: 'Software Engineer',
-		company: 'Intuitive Technology Innovations Pty Ltd',
+		company: 'Intuitive Technology Innovations',
 		type: 'Fulltime',
 		location: 'Sydney, Australia',
 		current: true,
+		// comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis auctor felis nec varius. Curabitur.",
+		techStack: [skillData.technologies["C#"], skillData.technologies.JavaScript],
 		dates: {
 			start: 'October 2019',
 			end: null,
@@ -16,9 +20,11 @@ const experience = [
 		type: 'Fulltime',
 		location: 'Sydney, Australia',
 		current: false,
+		// comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis auctor felis nec varius. Curabitur.",
+		techStack: [skillData.technologies.AWS, skillData.technologies.JavaScript],
 		dates: {
 			start: 'October 2019',
-			end: 'Feb 2020',
+			end: 'March 2020',
 		}
 	},
 	{
@@ -27,6 +33,8 @@ const experience = [
 		type: 'Internship',
 		location: 'Sydney, Australia',
 		current: false,
+		// comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis auctor felis nec varius. Curabitur.",
+		techStack: [skillData.technologies.JavaScript],
 		dates: {
 			start: 'August 2019',
 			end: 'October 2019',
@@ -38,6 +46,8 @@ const experience = [
 		type: 'Fulltime',
 		location: 'Islamabad, Pakistan',
 		current: false,
+		// comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis auctor felis nec varius. Curabitur.",
+		techStack: [skillData.technologies.Java, skillData.technologies.PHP],
 		dates: {
 			start: 'January 2017',
 			end: 'July 2019',
@@ -49,22 +59,13 @@ const experience = [
 		type: 'Fulltime',
 		location: 'Islamabad, Pakistan',
 		current: false,
+		// comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis auctor felis nec varius. Curabitur.",
+		techStack: [skillData.technologies.PHP],
 		dates: {
 			start: 'August 2016',
 			end: 'December 2016',
 		}
-	},
-	{
-		title: 'PHP Developer Intern',
-		company: 'National Highway Authority',
-		type: 'Internship',
-		location: 'Islamabad, Pakistan',
-		current: false,
-		dates: {
-			start: 'September 2015',
-			end: 'September 2015',
-		}
-	},
+	}
 ];
 
 export default experience;

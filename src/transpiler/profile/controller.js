@@ -17,15 +17,15 @@ class ProfileController {
 				description: 'Open default email client with me as recipient',
 				usage: 'profile.sendEmail'
 			},
-			makeCall: {
-				type: typeof this._makeCall,
-				description: 'Attempt to make a call to me',
-				usage: 'profile.makeCall'
-			},
-			viewLinkedIn: {
-				type: typeof this._viewLinkedIn,
+			// makeCall: {
+			// 	type: typeof this._makeCall,
+			// 	description: 'Attempt to make a call to me',
+			// 	usage: 'profile.makeCall'
+			// },
+			viewLinkedin: {
+				type: typeof this._viewLinkedin,
 				description: 'View my LinkedIn profile',
-				usage: 'profile.viewLinkedIn'
+				usage: 'profile.viewLinkedin'
 			},
 			viewGithub: {
 				type: typeof this._viewGithub,
@@ -44,10 +44,10 @@ class ProfileController {
 		switch (func) {
 			case "sendEmail":
 				return this._sendEmail();
-			case "makeCall":
-				return this._makeCall();
-			case "viewLinkedIn":
-				return this._viewLinkedIn();
+			// case "makeCall":
+			// 	return this._makeCall();
+			case "viewLinkedin":
+				return this._viewLinkedin();
 			case "viewGithub":
 				return this._viewGithub();
 			case "viewTwitter":
@@ -58,23 +58,23 @@ class ProfileController {
 	}
 
 	_sendEmail() {
-		window.open(this._data.links.email);
+		window.open(this._data.contact.email.link);
 	}
 
-	_makeCall() {
-		window.open(this._data.links.number);
-	}
+	// _makeCall() {
+	// 	window.open(this._data.contact.nu);
+	// }
 
-	_viewLinkedIn() {
-		window.open(this._data.links.linkedin);
+	_viewLinkedin() {
+		window.open(this._data.social.linkedin.link);
 	}
 
 	_viewGithub() {
-		window.open(this._data.links.github);
+		window.open(this._data.social.github.link);
 	}
 
 	_viewTwitter() {
-		window.open(this._data.links.twitter);
+		window.open(this._data.social.twitter.link);
 	}
 
 };
