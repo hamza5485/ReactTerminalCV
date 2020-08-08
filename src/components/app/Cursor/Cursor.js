@@ -82,7 +82,9 @@ const Cursor = props => {
 				autoFocus
 				startAdornment={
 					<InputAdornment position="start">
-						<span className={classes.session}>{`user@hamzaanas.codes:~#`}</span>
+						<span className={classes.session}>
+							{`${navigator.platform.replace(/\s/g, '_').toLowerCase()}@hamzaanas.codes:~#`}
+						</span>
 					</InputAdornment>
 				}
 				inputProps={{

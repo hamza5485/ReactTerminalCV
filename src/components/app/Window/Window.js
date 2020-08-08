@@ -51,8 +51,6 @@ const Window = props => {
 	};
 
 	useEffect(() => {
-		console.log('cursor', cursorList)
-		console.log('command', commandList)
 		if (commandList.length === 0)
 			setCursorList([getCursor()]);
 		else

@@ -20,7 +20,6 @@ const Terminal = props => {
 	const [closePressed, setClosePressed] = React.useState(false);
 
 	const handleCallback = click => {
-		console.log(click);
 		if (click === 'toggleMax') setToggleMaximize(!toggleMaximize);
 		if (click === 'toggleMin') setToggleMinimize(!toggleMinimize);
 		if (click === 'toggleX') setClosePressed(!closePressed);
