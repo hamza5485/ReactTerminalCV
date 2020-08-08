@@ -26,9 +26,7 @@ const Window = props => {
 			ts: res.timestamp,
 			command: res.command
 		};
-		if (res.command === 'clear' && commandList.length !== 0)
-			setCommandList([]);
-		else if (res.command === 'clear' && commandList.length === 0) {
+		if (res.command === 'clear') {
 			setCommandList([]);
 			setCursorList(getCursor());
 		} else
@@ -53,6 +51,8 @@ const Window = props => {
 	};
 
 	useEffect(() => {
+		console.log('cursor', cursorList)
+		console.log('command', commandList)
 		if (commandList.length === 0)
 			setCursorList([getCursor()]);
 		else
