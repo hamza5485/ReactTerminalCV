@@ -60,7 +60,7 @@ const TerminalInfo = props => {
 						Use `ls` command to view available sections. Use the `view [section]` command to
 						get all information available in a section. Use `explore [section]` command
 						to get a list of available functions that can be used.
-						All responses are JSON objects. Use `help` command for more information.
+						Use `help` command for more information.
 					</Typography>
 					<Typography className={classes.text}>
 						Examples:

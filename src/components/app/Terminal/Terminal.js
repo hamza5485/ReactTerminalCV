@@ -4,7 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Header from '../Header';
 import Window from '../Window';
-import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -17,25 +16,23 @@ const Terminal = props => {
 	const classes = useStyles();
 	const [toggleMaximize, setToggleMaximize] = React.useState(true);
 	const [toggleMinimize, setToggleMinimize] = React.useState(false);
-	const [closePressed, setClosePressed] = React.useState(false);
+	// const [closePressed, setClosePressed] = React.useState(false);
 
 	const handleCallback = click => {
 		if (click === 'toggleMax') setToggleMaximize(!toggleMaximize);
 		if (click === 'toggleMin') setToggleMinimize(!toggleMinimize);
-		if (click === 'toggleX') setClosePressed(!closePressed);
+		if (click === 'toggleX') window.open("https://hamzaanas.codes", "_self");
 	};
 
 	return (
 		<React.Fragment>
 			<CssBaseline />
 			<Container maxWidth={toggleMaximize ? "lg" : "sm"} className={classes.container}>
-				{!closePressed ?
-					<div style={{ height: '100%' }}>
-						<Header callback={handleCallback} />
-						<Window isMax={toggleMaximize} shouldMinimize={toggleMinimize}
-							transpiler={props.transpiler} />
-					</div> :
-					<Typography variant="h1" style={{ textAlign: 'center', color: '#49B9C7' }}>¯\_(ツ)_/¯</Typography>}
+				<div style={{ height: 'calc(100% - 8px)' }}>
+					<Header callback={handleCallback} />
+					<Window isMax={toggleMaximize} shouldMinimize={toggleMinimize}
+						transpiler={props.transpiler} />
+				</div>
 			</Container>
 		</React.Fragment>
 	);
