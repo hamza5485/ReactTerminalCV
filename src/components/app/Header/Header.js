@@ -8,6 +8,7 @@ import CloseIcon from '@material-ui/icons/CloseRounded';
 import MinimizeIcon from '@material-ui/icons/RemoveRounded';
 import MaximizeIcon from '@material-ui/icons/CheckBoxOutlineBlankRounded';
 import { TEXT } from '../../../constants/style'
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		flexGrow: 1,
 		textAlign: 'center',
+		overflow: 'auto',
 		...TEXT
 	},
 	appBar: {
@@ -29,10 +31,23 @@ const useStyles = makeStyles((theme) => ({
 	toolbar: {
 		padding: theme.spacing(0)
 	},
+	btn: {
+		padding: theme.spacing(1),
+		color: 'white',
+		backgroundColor: '#646464',
+		borderRadius: '.5em',
+		margin: theme.spacing(2),
+		border: '1px solid #818181',
+		'&:hover': {
+			backgroundColor: '#717171'
+		}
+
+	},
 	btnClose: {
 		backgroundColor: '#FF6F61',
 		color: 'white',
 		padding: theme.spacing(0),
+		fontWeight: 'bold',
 		margin: '0 .5em 0 0',
 		'&:hover': {
 			backgroundColor: '#FF6F61',
@@ -83,6 +98,9 @@ const Header = props => {
 					<Typography variant="h6" className={classes.title}>
 						{getClientOS() + "@hamzaanas.codes"}
 					</Typography>
+					<Button variant="contained" className={classes.btn} disableElevation href='https://hamzaanas.codes/resume'>
+						GUI
+					</Button>
 					<IconButton size="small" className={classes.btnMinimize} onClick={() => handleBtnClick("toggleMin")}>
 						<MinimizeIcon className={classes.icon} />
 					</IconButton>
