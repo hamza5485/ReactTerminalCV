@@ -17,6 +17,11 @@ class ProfileController {
 				description: 'Open default email client with me as recipient',
 				usage: 'profile.sendEmail'
 			},
+			viewResume: {
+				type: typeof this._viewResume,
+				description: 'View my Resume',
+				usage: 'profile.viewResume'
+			},
 			// makeCall: {
 			// 	type: typeof this._makeCall,
 			// 	description: 'Attempt to make a call to me',
@@ -43,7 +48,9 @@ class ProfileController {
 	getFunctions(func) {
 		switch (func) {
 			case "sendEmail":
-				return this._sendEmail();
+				return this._sendEmviewResumeail();
+			case "viewResume":
+				return this._viewResume();
 			// case "makeCall":
 			// 	return this._makeCall();
 			case "viewLinkedin":
@@ -61,20 +68,24 @@ class ProfileController {
 		window.open(this._data.contact.email.link);
 	}
 
+	_viewResume() {
+		window.open(this._data.links.resume.link);
+	}
+
 	// _makeCall() {
 	// 	window.open(this._data.contact.nu);
 	// }
 
 	_viewLinkedin() {
-		window.open(this._data.social.linkedin.link);
+		window.open(this._data.links.linkedin.link);
 	}
 
 	_viewGithub() {
-		window.open(this._data.social.github.link);
+		window.open(this._data.links.github.link);
 	}
 
 	_viewTwitter() {
-		window.open(this._data.social.twitter.link);
+		window.open(this._data.links.twitter.link);
 	}
 
 };

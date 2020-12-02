@@ -1,19 +1,18 @@
 const profile = {
 	name: "Hamza Anas",
 	title: "Software Engineer",
-	summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan, enim vel posuere scelerisque, mauris odio viverra odio,nec egestas turpis magna vitae enim. Donec mauris est, vestibulum a tellus ac,mollis sagittis arcu. Nunc in sagittis erat. Nullam fermentum, diam et venenatis maximus,leo mi imperdiet lacus, vel sollicitudin turpis lacus id lectus. Donec ultrices laoreet efficitur.",
+	summary: "My journey to programming started with writing matrix inspired batch programs for the cmd. I am now vibing with the AWS serverless cloud architecture. On most days, I'm programming web and mobile technologies. I find writing code to be a cathartic experience and so, will be attempting to code-ify whatever daily mundane task I can find. If not writing code, I'll either be rooting/flashing my old android devices, getting my hands dirty with Linux or a raspberry PI or watching anime.",
 	contact: {
-		website: { text: "hamzaanas.codes", link: "https://www.hamzaanas.codes" },
+		website: { text: "hamzaanas.codes", link: "https://hamzaanas.codes" },
 		email: { text: "hamza5485@gmail.com", link: "mailto:hamza5485@gmail.com" },
-		// number: { text: "NUMBER HERE", link: "tel:NUMBER_HERE" },
 		location: { text: "Sydney, Australia" }
 	},
-	social: {
+	links: {
+		resume: { text: "Resume", link: "https://hamzaanas.codes/resume" },
 		linkedin: { text: "hamzaanas", link: "https://www.linkedin.com/in/hamzaanas/" },
 		github: { text: "hamza5485", link: "https://github.com/hamza5485" },
 		twitter: { text: "@hamza_anas5", link: "https://twitter.com/hamza_anas5" }
 	}
 }
-
 
 export default profile;

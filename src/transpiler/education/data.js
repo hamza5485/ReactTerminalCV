@@ -1,13 +1,8 @@
-// import MqImage from '../images/mq.png';
-// import SwanseaImage from '../images/swan.png';
-// import CourseraImage from '../images/coursera.png';
-
 const education = {
 	schooling: [
 		{
 			name: "Macquarie University",
-			type: "Masters",
-			course: "Masters of Information Technologdy (MIT)",
+			course: "Masters of Information Technology (MIT)",
 			specialization: "Internetworking and Cybersecurity",
 			location: "Sydney, Australia",
 			dates: {
@@ -19,7 +14,6 @@ const education = {
 		},
 		{
 			name: "Swansea University",
-			type: "Bachelors",
 			course: "Bachelors of Science (BSc) (Hons)",
 			specialization: "Software Engineering",
 			location: "Swansea, UK",
@@ -33,12 +27,17 @@ const education = {
 	],
 	certs: [
 		{
+			name: "AWS Certified Developer – Associate",
+			org: "Amazon Web Services Training and Certification",
+			completionDate: "September, 2020",
+			url: "https://www.youracclaim.com/badges/c1109a51-b76f-4ab7-a7b2-c75679303465/public_url"
+		},
+		{
 			name: "Programming Mobile Applications for Android Handheld Systems",
 			org: "Coursera Verified Certificates",
 			completionDate: "August, 2015",
-			certId: "Y3MFHBG52F",
 			url: "https://www.coursera.org/account/accomplishments/certificate/Y3MFHBG52F"
-		}
+		},
 	]
 }
 

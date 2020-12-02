@@ -1,23 +1,23 @@
 const skills = {
 	skill: [
-		"Amazon Web Services",
+		"Cloud Architecture",
+		"Communications",
 		"Web Development",
 		"Mobile Development",
 		"Database Development",
 		"Programming Languages"
 	],
 	technologies: {
-		AWS: {
+		Cloud: {
 			type: "cloud",
 			stack: [
-				"EC2",
-				"ELB",
-				"Lambda",
-				"S3",
-				"Route53",
-				"CloudFront",
-				"API Gateway",
-				"Cognito"
+				"AWS",
+			]
+		},
+		Telephony: {
+			type: "comsys",
+			stack: [
+				"Twilio"
 			]
 		},
 		JavaScript: {
@@ -66,7 +66,8 @@ const skills = {
 			type: "storage",
 			stack: [
 				"MySQL",
-				"Mongo"
+				"MongoDB",
+				"DynamoDB"
 			]
 		},
 		Languages: {

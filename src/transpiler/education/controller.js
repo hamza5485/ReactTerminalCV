@@ -60,7 +60,7 @@ class EducationController {
 	_viewBsc() {
 		let bsc = [];
 		for (let school of this._data.schooling) {
-			if (school.type === 'Bachelors') {
+			if (school.name === 'Swansea University') {
 				bsc.push(school);
 			}
 		}
@@ -70,7 +70,7 @@ class EducationController {
 	_viewMsc() {
 		let msc = [];
 		for (let school of this._data.schooling) {
-			if (school.type === 'Masters') {
+			if (school.name === 'Macquarie University') {
 				msc.push(school);
 			}
 		}
@@ -82,7 +82,7 @@ class EducationController {
 		for (let school of this._data.schooling) {
 			let s = {
 				name: school.name,
-				type: school.type,
+				type: school.course,
 				location: school.location,
 				url: school.url
 			};
@@ -97,7 +97,6 @@ class EducationController {
 			let c = {
 				degree: school.course,
 				specialization: school.specialization,
-				type: school.type,
 				uni: school.name,
 				courseUrl: school.courseUrl
 			};
