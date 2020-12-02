@@ -15,9 +15,12 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 	},
 	title: {
+		padding: theme.spacing(1),
 		flexGrow: 1,
 		textAlign: 'center',
-		overflow: 'auto',
+		overflow: 'hidden',
+		whiteSpace: 'noWrap',
+		textOverflow: 'ellipsis',
 		...TEXT
 	},
 	appBar: {
@@ -32,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
 		padding: theme.spacing(0)
 	},
 	btn: {
-		padding: theme.spacing(1),
+		// padding: theme.spacing(1),
 		color: 'white',
 		backgroundColor: '#646464',
 		borderRadius: '.5em',
-		margin: theme.spacing(2),
+		margin: theme.spacing(1),
 		border: '1px solid #818181',
 		'&:hover': {
 			backgroundColor: '#717171'
@@ -84,7 +87,7 @@ const Header = props => {
 	const classes = useStyles();
 
 	const getClientOS = () => {
-		return navigator.platform.replace(/\s/g, '_');
+		return navigator.platform.replace(/\s/g, '_').toLowerCase();
 	};
 
 	const handleBtnClick = click => {
