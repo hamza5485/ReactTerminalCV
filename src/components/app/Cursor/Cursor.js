@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { InputBase, InputAdornment } from '@material-ui/core';
 import { COMMAND } from '../../../constants/style';
@@ -38,6 +38,12 @@ const Cursor = props => {
 	const [response, setResponse] = React.useState("");
 	const [upKeyCount, setUpKeyCount] = React.useState(1);
 	const [shouldDisable, setShouldDisable] = React.useState(false);
+	const inputRef = React.useRef();
+
+	useEffect(() => {
+		inputRef.current.selectionStart = inputRef.current.value.length;
+		inputRef.current.selectionEnd = inputRef.current.value.length;
+	}, [upKeyCount]);
 
 	const handleKeyKey = e => {
 		if (e.keyCode === 13) { // enter
@@ -48,7 +54,7 @@ const Cursor = props => {
 			const lastCommand = props.getPrevCommand(upKeyCount);
 			if (lastCommand !== undefined) {
 				setUpKeyCount(upKeyCount + 1);
-				setCommand(lastCommand)
+				setCommand(lastCommand);
 			}
 		} else if (e.keyCode === 40 && upKeyCount > 0) { // down key
 			const prevCommand = props.getPrevCommand(upKeyCount - 1);
@@ -63,7 +69,7 @@ const Cursor = props => {
 
 	const prettyResponse = () => {
 		if (response === HELP || Object.values(ERRORS).findIndex(e => e.errMsg === response) !== -1)
-			return response;
+			return <pre>{response}</pre>;
 		else return (
 			<SyntaxHighlighter style={agate} className={classes.pretty}>
 				{response}
@@ -74,6 +80,7 @@ const Cursor = props => {
 	return (
 		<div>
 			<InputBase
+				inputRef={inputRef}
 				className={classes.input}
 				disabled={shouldDisable}
 				onKeyDown={handleKeyKey}
