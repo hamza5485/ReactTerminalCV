@@ -22,11 +22,11 @@ class ProfileController {
 				description: 'View my Resume',
 				usage: 'profile.viewResume'
 			},
-			// makeCall: {
-			// 	type: typeof this._makeCall,
-			// 	description: 'Attempt to make a call to me',
-			// 	usage: 'profile.makeCall'
-			// },
+			viewBlog: {
+				type: typeof this._viewBlog,
+				description: 'View my Blog',
+				usage: 'profile.viewBlog'
+			},
 			viewLinkedin: {
 				type: typeof this._viewLinkedin,
 				description: 'View my LinkedIn profile',
@@ -51,8 +51,8 @@ class ProfileController {
 				return this._sendEmviewResumeail();
 			case "viewResume":
 				return this._viewResume();
-			// case "makeCall":
-			// 	return this._makeCall();
+			case "viewBlog":
+				return this._viewBlog();
 			case "viewLinkedin":
 				return this._viewLinkedin();
 			case "viewGithub":
@@ -72,9 +72,9 @@ class ProfileController {
 		window.open(this._data.links.resume.link);
 	}
 
-	// _makeCall() {
-	// 	window.open(this._data.contact.nu);
-	// }
+	_viewBlog() {
+		window.open(this._data.links.dev.link);
+	}
 
 	_viewLinkedin() {
 		window.open(this._data.links.linkedin.link);

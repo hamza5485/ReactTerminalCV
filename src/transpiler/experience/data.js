@@ -2,7 +2,7 @@ import skillData from '../skills/data';
 
 const experience = [
 	{
-		title: 'Software Engineer',
+		title: 'Senior Software Engineer',
 		company: 'Intuitive Technology Innovations',
 		type: 'Fulltime',
 		location: 'Sydney, Australia',
